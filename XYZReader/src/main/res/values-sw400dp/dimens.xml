@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Brian Jackson
+     bj1412@att.com
+     11/13/2017
+     Android Developer Nanodegree
+     Project 5: Make Your App Material
+
+     File:  dimens.xml (sw400dp)
+     -Dimension values used in styles and throughout app.
+     -Specific values used for screen widths at least 400dp.
+
+-->
+
+<resources>
+
+    <!-- article list -->
+    <dimen name="list_title_text_size">22sp</dimen>
+    <dimen name="list_subtitle_text_size">18sp</dimen>
+
+    <!-- article detail -->
+    <dimen name="detail_title_text_size">45sp</dimen>
+    <dimen name="detail_body_text_size">17sp</dimen>
+    <dimen name="detail_byline_text_size">20sp</dimen>
+
+    <!-- bar -->
+    <dimen name="collapsed_app_bar_text_size">20sp</dimen>
+    <dimen name="expanded_app_bar_text_size">36sp</dimen>
+
+    <dimen name="detail_toolbar_title_marginTop">8dp</dimen>
+    <dimen name="detail_toolbar_title_marginLeft">25dp</dimen>
+
+    <dimen name="expandedTitleMarginStart">28dp</dimen>
+    <dimen name="expandedTitleMarginBottom">10dp</dimen>
+
+    <dimen name="action_bar_size">50dp</dimen>
+    <dimen name="appbar_layout_height">125dp</dimen>
+
+    <!-- fab -->
+    <dimen name="fab_margin">24dp</dimen>
+
+
+</resources>

@@ -1,0 +1,140 @@
+<!--
+     Brian Jackson
+     bj1412@att.com
+     11/13/2017
+     Android Developer Nanodegree
+     Project 5: Make Your App Material
+
+     File:  fragment_article_detail.xml
+     -Displays the article title, date, author, and article text.
+     -Implemented a CoordinatorLayout, AppBarLayout, CollapsingToolbarLayout, Toolbar, and FloatingActionButton.
+     -FloatingActionButton provides share capability via an intent.
+     -Implemented multiline-collapsingtoolbar as a replacement for CollapsingToolbarLayout from the Android Design Support
+      Library which can deal with multiline titles in the expanded state.
+     -Article title is displayed programmatically in CollapsingToolbarLayout code located in ArticleDetailFragment.java
+     -Utilized 'Theme.Bacon' styles in appropriate elements.
+
+-->
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/toolbar_detail_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorPrimary"
+        android:elevation="@dimen/appbar_elevation"
+        android:fitsSystemWindows="true">
+
+        <net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?colorPrimary"
+            app:expandedTitleTextAppearance="@style/Theme.Bacon.ExpandedAppBar"
+            app:collapsedTitleTextAppearance="@style/Theme.Bacon.CollapsedAppBar"
+            app:expandedTitleMarginStart="@dimen/expandedTitleMarginStart"
+            app:expandedTitleMarginEnd="@dimen/expandedTitleMarginEnd"
+            app:expandedTitleMarginBottom="@dimen/expandedTitleMarginBottom"
+            android:fitsSystemWindows="true">
+
+            <FrameLayout
+                android:id="@+id/photo_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/photo_placeholder"
+                app:layout_collapseMode="parallax">
+                <!--suppress AndroidLintContentDescription -->
+                <ImageView
+                    android:id="@+id/photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/photo_background_protection" />
+            </FrameLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_detail"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_marginTop="@dimen/detail_toolbar_title_marginTop"
+                android:layout_marginLeft="@dimen/detail_toolbar_title_marginLeft"
+                android:elevation="@dimen/toolbar_elevation"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        </net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout>>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/whtColor"
+        android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/meta_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/detail_inner_horiz_margin"
+                    android:paddingRight="@dimen/detail_inner_horiz_margin"
+                    android:paddingTop="@dimen/detail_metabar_vert_padding"
+                    android:paddingBottom="@dimen/detail_metabar_vert_padding"
+                    android:layout_marginBottom="@dimen/detail_metabar_vert_padding">
+
+                    <TextView
+                        android:id="@+id/article_byline"
+                        style="@style/Theme.Bacon.ArticleByline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/article_body"
+                    style="@style/Theme.Bacon.ArticleBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
+                    android:layout_marginRight="@dimen/detail_inner_horiz_margin"
+                    android:paddingBottom="@dimen/detail_body_bottom_margin" />
+
+    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/share_fab"
+        android:contentDescription="@string/action_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_share"
+        android:background="@drawable/add_fab_background"
+        android:elevation="@dimen/fab_elevation"
+        android:stateListAnimator="@anim/fab_state_list_anim"
+        app:fabSize="normal"
+        app:pressedTranslationZ="@dimen/fab_press_translation_z" />
+
+</android.support.design.widget.CoordinatorLayout>

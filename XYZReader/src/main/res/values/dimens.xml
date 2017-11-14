@@ -1,0 +1,50 @@
+<!--
+     Brian Jackson
+     bj1412@att.com
+     11/13/2017
+     Android Developer Nanodegree
+     Project 5: Make Your App Material
+
+     File:  dimens.xml
+     -Dimension values used in styles and throughout app.
+     -All values used for screen widths less than 400dp.
+
+-->
+
+
+<resources>
+
+    <!-- article list -->
+    <dimen name="list_title_text_size">20sp</dimen>
+    <dimen name="list_subtitle_text_size">14sp</dimen>
+
+    <!-- article detail -->
+    <dimen name="detail_title_text_size">32sp</dimen>
+    <dimen name="detail_body_text_size">14sp</dimen>
+    <dimen name="detail_byline_text_size">15sp</dimen>
+    <item name="detail_body_line_spacing_multiplier" format="float" type="dimen">1.25</item>
+
+    <dimen name="detail_toolbar_title_marginTop">10dp</dimen>
+    <dimen name="detail_toolbar_title_marginLeft">25dp</dimen>
+
+    <!-- fab -->
+    <dimen name="fab_elevation">6dp</dimen>
+    <dimen name="fab_press_translation_z">12dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- bar -->
+    <dimen name="appbar_elevation">4dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+
+    <dimen name="collapsed_app_bar_text_size">20sp</dimen>
+    <dimen name="expanded_app_bar_text_size">30sp</dimen>
+
+    <dimen name="expandedTitleMarginStart">48dp</dimen>
+    <dimen name="expandedTitleMarginEnd">64dp</dimen>
+    <dimen name="expandedTitleMarginBottom">10dp</dimen>
+
+    <dimen name="action_bar_size">60dp</dimen>
+
+    <dimen name="appbar_layout_height">112dp</dimen>
+
+</resources>
