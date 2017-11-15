@@ -1,3 +1,19 @@
+/*
+ * Brian Jackson
+ * bj1412@att.com
+ * 11/13/2017
+ * Android Developer Nanodegree
+ * Project 5: Make Your App Material
+ *
+ * Filename: ArticleListActivity.java
+ * -Implemented SnackBar that is displayed if no network connection exists.
+ * -Uses isNetworkAvailable() check to determine network status.  Credit:  https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
+ * -Search for 'Project 5' for inline comments.
+ *
+ *
+ */
+
+
 package com.example.xyzreader.ui;
 
 import android.app.LoaderManager;
@@ -7,7 +23,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -53,6 +72,8 @@ public class ArticleListActivity extends AppCompatActivity implements
     // Most time functions can only handle 1902 - 2037
     private GregorianCalendar START_OF_EPOCH = new GregorianCalendar(2,1,1);
 
+    Boolean netAvailable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,10 +88,32 @@ public class ArticleListActivity extends AppCompatActivity implements
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         getLoaderManager().initLoader(0, null, this);
 
+        //Project 5:  Display Snackbar message if no internet connection.
         if (savedInstanceState == null) {
-            refresh();
+            netAvailable = isNetworkAvailable();
+            if(netAvailable)
+                refresh();
+            else
+            {
+                Snackbar.make(findViewById(android.R.id.content), "No Internet connection!", Snackbar.LENGTH_LONG).show();
+            }
         }
+
     }
+
+    //Project 5:  Checks if network connection exists and returns boolean result.
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+        boolean isAvailable = false;
+
+        if (networkInfo != null && networkInfo.isConnected()){
+            isAvailable = true;
+        }
+        return isAvailable;
+    }
+
 
     private void refresh() {
         startService(new Intent(this, UpdaterService.class));
