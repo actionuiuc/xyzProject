@@ -8,6 +8,7 @@
      File:  activity_article_list.xml
      -Displays the list of articles on the initial screen using a RecyclerView composed of CardViews (list_item_article.xml).
      -Implemented a CoordinatorLayout, AppBarLayout, and Toolbar
+     -Implemented a seam to step transition using the CollapsingToolbarLayout and scrollFlags.
 
 -->
 
@@ -31,7 +32,8 @@
             android:paddingTop="116dp"
             android:paddingLeft="@dimen/list_side_margin"
             android:paddingRight="@dimen/list_side_margin"
-            android:paddingBottom="28dp" />
+            android:paddingBottom="28dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
     </android.support.v4.widget.SwipeRefreshLayout>
 
 
@@ -39,10 +41,14 @@
         android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/appbar_layout_height"
-        android:background="?colorPrimary"
         android:elevation="@dimen/appbar_elevation"
         android:gravity="bottom"
         >
+        
+    <android.support.design.widget.CollapsingToolbarLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -50,6 +56,8 @@
             android:layout_height="?actionBarSize"
             android:layout_marginLeft="@dimen/list_toolbar_side_margin"
             android:layout_marginRight="@dimen/list_toolbar_side_margin"
+            app:layout_collapseMode="pin"
+            android:layout_gravity="bottom"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             >
 
@@ -61,6 +69,8 @@
                  />
 
         </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
