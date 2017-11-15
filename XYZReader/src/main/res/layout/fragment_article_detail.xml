@@ -74,7 +74,7 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-        </net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout>>
+        </net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
@@ -120,8 +120,8 @@
                     android:paddingBottom="@dimen/detail_body_bottom_margin" />
 
     </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
 
+    </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/share_fab"
@@ -131,10 +131,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_share"
-        android:background="@drawable/add_fab_background"
-        android:elevation="@dimen/fab_elevation"
-        android:stateListAnimator="@anim/fab_state_list_anim"
-        app:fabSize="normal"
-        app:pressedTranslationZ="@dimen/fab_press_translation_z" />
+        app:layout_behavior="com.example.xyzreader.support.ScrollAwareFABBehavior"
+        app:fabSize="normal" />
 
 </android.support.design.widget.CoordinatorLayout>
