@@ -17,23 +17,23 @@
 <resources>
 
     <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/greenColor</item>
-        <item name="colorAccent">@color/redColor</item>
-        <item name="android:textColorPrimary">@color/whtColor</item>
-        <item name="android:textColorSecondary">@color/blkColor</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
         <item name="android:actionBarSize">@dimen/action_bar_size</item>
     </style>
 
 
     <style name="Theme.Bacon.CollapsedAppBar" parent="Theme.Bacon">
         <item name="android:textSize">@dimen/collapsed_app_bar_text_size</item>
-        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="Theme.Bacon.ExpandedAppBar" parent="Theme.Bacon">
         <item name="android:textSize">@dimen/expanded_app_bar_text_size</item>
-        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -45,8 +45,7 @@
 
     <style name="Theme.Bacon.ArticleBody" parent="Theme.Bacon">
         <item name="android:textSize">@dimen/detail_body_text_size</item>
-        <item name="android:textColor">?android:textColorSecondary</item>
-        <item name="android:textColorLink">@color/blueColor</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
         <item name="android:fontFamily">sans-serif</item>
     </style>
 
