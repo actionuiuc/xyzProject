@@ -13,7 +13,7 @@
       Library which can deal with multiline titles in the expanded state.
      -Article title is displayed programmatically in CollapsingToolbarLayout code located in ArticleDetailFragment.java
      -Utilized 'Theme.Bacon' styles in appropriate elements.
-     -
+
 
 -->
 
@@ -89,7 +89,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@color/whtColor"
         android:orientation="vertical">
 
                 <LinearLayout
