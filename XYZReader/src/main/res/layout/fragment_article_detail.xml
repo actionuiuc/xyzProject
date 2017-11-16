@@ -13,6 +13,7 @@
       Library which can deal with multiline titles in the expanded state.
      -Article title is displayed programmatically in CollapsingToolbarLayout code located in ArticleDetailFragment.java
      -Utilized 'Theme.Bacon' styles in appropriate elements.
+     -Added behavior to FloatingActionButton to hide FAB when scrolling downward.
 
 
 -->
