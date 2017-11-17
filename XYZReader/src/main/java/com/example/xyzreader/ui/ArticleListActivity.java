@@ -8,6 +8,7 @@
  * Filename: ArticleListActivity.java
  * -Implemented SnackBar that is displayed if no network connection exists.
  * -Uses isNetworkAvailable() check to determine network status.  Credit:  https://stackoverflow.com/questions/4238921/detect-whether-there-is-an-internet-connection-available-on-android
+ * -Fixed issue where refresh spinner would not disappear.
  * -Search for 'Project 5' for inline comments.
  *
  *
@@ -84,6 +85,14 @@ public class ArticleListActivity extends AppCompatActivity implements
         final View toolbarContainerView = findViewById(R.id.toolbar_container);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+
+        //Project 5:  Fixed issue where refresh spinner would not disappear.
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh();
+            }});
+
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         getLoaderManager().initLoader(0, null, this);
